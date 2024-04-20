@@ -1,6 +1,7 @@
 package com.bagoshort.func;
 
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 
@@ -54,11 +55,9 @@ public class HomeFragment extends Fragment {
         ((AppCompatActivity) getActivity()).setSupportActionBar(binding.toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(false);
-        binding.search.setOnClickListener(v -> {
-            ShowUtil.showToast(getContext(),"搜索");
-        });
+        binding.search.setOnClickListener(v -> startActivity(new Intent(getContext(), SearchActivity.class)));
         binding.coin.setOnClickListener(view -> {
-            ShowUtil.showToast(getContext(),"充值");
+            ShowUtil.showToast(getContext(),"充值弹框");
         });
     }
 
