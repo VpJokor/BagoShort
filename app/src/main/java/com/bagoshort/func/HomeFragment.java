@@ -1,10 +1,15 @@
 package com.bagoshort.func;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -39,7 +44,7 @@ public class HomeFragment extends Fragment {
 
     public HomeFragment() {}
     private FragmentHomeBinding binding;
-
+    private ActivityResultLauncher<Intent> launcher ;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
@@ -55,7 +60,17 @@ public class HomeFragment extends Fragment {
         ((AppCompatActivity) getActivity()).setSupportActionBar(binding.toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(false);
-        binding.search.setOnClickListener(v -> startActivity(new Intent(getContext(), SearchActivity.class)));
+        binding.search.setOnClickListener(v -> {
+            if (launcher ==null) launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+                Intent data = result.getData();
+                if (data == null) return;
+                int resultCode = result.getResultCode();
+                if ( resultCode == RESULT_OK) {
+
+                }
+            });
+            launcher.launch(new Intent(getContext(), SearchActivity.class));
+        });
         binding.coin.setOnClickListener(view -> {
             ShowUtil.showToast(getContext(),"充值弹框");
         });
