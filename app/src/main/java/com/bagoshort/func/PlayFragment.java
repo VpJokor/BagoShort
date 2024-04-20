@@ -33,8 +33,8 @@ public class PlayFragment extends Fragment {
     public PlayFragment() {}
     private FragmentPlayBinding binding;
 
-    public boolean isShowMenu = false;
-
+    public boolean isShowMenu = true;
+    public boolean isPageShow = false;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentPlayBinding.inflate(getLayoutInflater());
@@ -112,6 +112,8 @@ public class PlayFragment extends Fragment {
         JzvdStdTikTok player = childView.findViewById(R.id.videoplayer);
         if (player == null) return;
         player.startVideoAfterPreloading();
+        if (!isPageShow)Jzvd.goOnPlayOnPause();
+
     }
 
 }

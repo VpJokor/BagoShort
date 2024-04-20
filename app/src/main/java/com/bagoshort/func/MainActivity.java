@@ -31,8 +31,10 @@ public class MainActivity extends AppCompatActivity {
         Jzvd.setVideoImageDisplayType(Jzvd.VIDEO_IMAGE_DISPLAY_TYPE_FILL_SCROP);
         initPager();
     }
-
+    public List<Fragment> fragmentList= new ArrayList<>();
     private void initPager(){
+        fragmentList.add(new PlayFragment());
+        fragmentList.add(new HomeFragment());
         MainAdapter adapter = new MainAdapter(this);
         binding.pager.setAdapter(adapter);
         binding.pager.setOffscreenPageLimit(2);
@@ -43,8 +45,13 @@ public class MainActivity extends AppCompatActivity {
                 binding.navigation.getMenu().getItem(position).setChecked(true);
                 StatusBarUtil.setAndroidNativeLightStatusBar(MainActivity.this,position == 1);
                 binding.navigation.setVisibility( position == 0 ? View.GONE : View.VISIBLE );
-                if ( position != 0 ) Jzvd.goOnPlayOnPause();
-                else Jzvd.goOnPlayOnResume();
+                if ( position == 0 ) {
+                    if (fragmentList.size()>0)((PlayFragment)fragmentList.get(0)).isPageShow = true;
+                    Jzvd.goOnPlayOnResume();
+                } else{
+                    if (fragmentList.size()>0)((PlayFragment)fragmentList.get(0)).isPageShow = false;
+                    Jzvd.goOnPlayOnPause();
+                }
             }
         });
         binding.navigation.setItemIconTintList(null);
@@ -65,14 +72,10 @@ public class MainActivity extends AppCompatActivity {
     /**
      *  用来控制 MainActivity的ViewPager2
      */
-    public static class MainAdapter extends FragmentStateAdapter {
-
-        List<Fragment> fragmentList= new ArrayList<>();
+    public class MainAdapter extends FragmentStateAdapter {
 
         public MainAdapter(@NonNull FragmentActivity fragmentActivity) {
             super(fragmentActivity);
-            fragmentList.add(new PlayFragment());
-            fragmentList.add(new HomeFragment());
         }
 
         @NonNull
