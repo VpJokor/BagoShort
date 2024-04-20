@@ -37,9 +37,9 @@ public class HomeFragment extends Fragment {
         binding.search.setOnClickListener(v -> {
             ShowUtil.showToast(getContext(),"搜索");
         });
-//        binding.friends.setOnClickListener(view -> {
-//
-//        });
+        binding.coin.setOnClickListener(view -> {
+            ShowUtil.showToast(getContext(),"充值");
+        });
     }
 
     private void initList(){
