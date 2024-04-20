@@ -10,6 +10,8 @@ public class Short {
     public String cover;
     //名字
     public String name;
+    //简介
+    public String desc;
     //分类
     public int tagId;
     public int tagName;
