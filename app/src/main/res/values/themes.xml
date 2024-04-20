@@ -1,9 +1,45 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.BagoShort" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.GitChat" parent="Theme.Material3.DayNight.NoActionBar">
+        <!--沉浸式状态栏-->
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <!--去掉标题栏-->
+        <item name="android:windowNoTitle">true</item>
+        <!--Android 5.x开始需要把颜色设置透明，否则导航栏会呈现系统默认的浅灰色-->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+    <style name="Theme.GitChat" parent="Base.Theme.GitChat" />
+
+    <!--  启动页样式  -->
+<!--    <style name="Theme.Splash" parent="Base.Theme.GitChat">-->
+<!--        <item name="android:windowContentOverlay">@null</item>-->
+<!--        <item name="android:windowBackground">@drawable/login_splash_bg</item>-->
+<!--        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@drawable/login_splash_bg</item>-->
+<!--    </style>-->
+
+    <!--  主页底部导航字体样式  -->
+    <style name="Active" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/color_black_200</item>
+    </style>
+    <!--  主页底部导航字体样式  -->
+    <style name="Inactive" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/color_brown</item>
     </style>
 
-    <style name="Theme.BagoShort" parent="Base.Theme.BagoShort" />
+
+    <!--  ShapleImageView样式 - 圆角  -->
+    <style name="CircleStyle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!--  ShapleImageView样式 - 圆角 10DP  -->
+    <style name="CircleStyle10DP">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+    </style>
 </resources>

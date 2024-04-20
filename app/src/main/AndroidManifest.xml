@@ -10,12 +10,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BagoShort"
+        android:theme="@style/Theme.GitChat"
         android:name=".core.MyApp"
         tools:targetApi="31">
-        <activity
-            android:name=".func.SearchActivity"
-            android:exported="false" />
         <activity
             android:name=".func.MainActivity"
             android:exported="true">

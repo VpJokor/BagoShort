@@ -19,6 +19,7 @@ public class AppConfig {
 
     }
     //从服务端拉取短剧数据
+    //检查本地数据版本，从服务端拉新数据
     private void initDatas(){
 
     }
