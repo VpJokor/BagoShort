@@ -7,6 +7,7 @@
 
     <color name="white">#FFFFFFFF</color>
     <color name="color_white_100">#4DFFFFFF</color>
+    <color name="color_white_200">#E6FFFFFF</color>
 
     <color name="color_grey">#F5F5F5</color>
     <color name="color_grey_200">#DCDCDC</color>
@@ -16,6 +17,7 @@
     <color name="color_grey_600">#808080</color>
     <color name="color_grey_700">#696969</color>
     <color name="color_grey_800">#CCF5F3F8</color>
+    <color name="color_grey_900">#6E7B8B</color>
 
     <color name="color_purpose">#D6A9ED</color>
     <color name="color_purpose_200">#AD22F4</color>

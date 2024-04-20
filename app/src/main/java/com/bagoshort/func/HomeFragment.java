@@ -2,8 +2,10 @@ package com.bagoshort.func;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +14,14 @@ import android.view.ViewGroup;
 import com.bagoshort.R;
 import com.bagoshort.core.utils.ShowUtil;
 import com.bagoshort.core.utils.SizeUtil;
+import com.bagoshort.core.utils.blur.BlurTransformation;
 import com.bagoshort.databinding.FragmentHomeBinding;
+import com.bagoshort.databinding.FragmentHomeHeaderBinding;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class HomeFragment extends Fragment {
@@ -24,6 +33,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
         initToolBar();
+        initHeader();
         initList();
         return binding.getRoot();
     }
@@ -42,11 +52,48 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    private void initList(){
+    private FragmentHomeHeaderBinding headerBinding;
+    private void initHeader(){
+        headerBinding = FragmentHomeHeaderBinding.inflate(getLayoutInflater());
+        Glide.with(getContext())
+                .load(R.mipmap.history)
+                .apply(RequestOptions.bitmapTransform(new BlurTransformation(25, 3)))
+                .into(headerBinding.historyImg);
+        Glide.with(getContext())
+                .load(R.mipmap.collection)
+                .apply(RequestOptions.bitmapTransform(new BlurTransformation(25, 3)))
+                .into(headerBinding.collectionImg);
 
     }
 
-    private void initSearch(){
+    private HomeAdapter listAdapter ;
+    private void initList(){
+        binding.list.setLayoutManager(new GridLayoutManager(getContext(),3));
+        listAdapter = new HomeAdapter();
+        listAdapter.addHeaderView(headerBinding.getRoot());
+        listAdapter.setUseEmpty(true);
+        listAdapter.setEmptyView(R.layout.fragment_home_empty);
+        listAdapter.getLoadMoreModule().setOnLoadMoreListener(this::loadMore);
+        listAdapter.getLoadMoreModule().setPreLoadNumber(6);
+        binding.list.setAdapter(listAdapter);
+        binding.refresh.setOnRefreshListener(refreshLayout -> refresh());
+        List<String> datas = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            datas.add(""+i);
+        }
+        listAdapter.setList(datas);
+    }
+
+    private void loadMore(){
+        ShowUtil.showToast(getContext(),"加载更多");
+    }
+
+    private void refresh(){
+        binding.refresh.finishRefresh(300);
+        ShowUtil.showToast(getContext(),"刷新");
+    }
+
+    private void search(){
 
     }
 }

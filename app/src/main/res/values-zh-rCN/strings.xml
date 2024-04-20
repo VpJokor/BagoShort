@@ -3,4 +3,6 @@
     <string name="main_activity_tab_play">播放</string>
     <string name="main_activity_tab_home">主页</string>
     <string name="recharge">充值</string>
+    <string name="history">播放记录</string>
+    <string name="collection">我的收藏</string>
 </resources>
