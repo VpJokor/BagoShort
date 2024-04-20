@@ -38,7 +38,6 @@ public class PlayFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentPlayBinding.inflate(getLayoutInflater());
-        Jzvd.setVideoImageDisplayType(Jzvd.VIDEO_IMAGE_DISPLAY_TYPE_FILL_SCROP);
         initShowMenu();
         initList();
         return binding.getRoot();
@@ -102,6 +101,7 @@ public class PlayFragment extends Fragment {
             datas.add(""+i);
         }
         adapter.setList(datas);
+        Jzvd.goOnPlayOnPause();
     }
 
     public void autoPlayVideo() {
