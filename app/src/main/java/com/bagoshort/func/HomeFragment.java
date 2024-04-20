@@ -12,13 +12,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bagoshort.R;
+import com.bagoshort.core.data.BannerData;
 import com.bagoshort.core.utils.ShowUtil;
 import com.bagoshort.core.utils.SizeUtil;
 import com.bagoshort.core.utils.blur.BlurTransformation;
 import com.bagoshort.databinding.FragmentHomeBinding;
 import com.bagoshort.databinding.FragmentHomeHeaderBinding;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
+import com.youth.banner.adapter.BannerImageAdapter;
+import com.youth.banner.holder.BannerImageHolder;
+import com.youth.banner.indicator.CircleIndicator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +68,23 @@ public class HomeFragment extends Fragment {
                 .load(R.mipmap.collection)
                 .apply(RequestOptions.bitmapTransform(new BlurTransformation(25, 3)))
                 .into(headerBinding.collectionImg);
+        List<BannerData> bannerList = new ArrayList<>();
+        bannerList.add(new BannerData("", "标题1"));
+        bannerList.add(new BannerData("", "标题2"));
+        bannerList.add(new BannerData("", "标题3"));
+        headerBinding.banner.setAdapter(new BannerImageAdapter<BannerData>(bannerList) {
+                    @Override
+                    public void onBindView(BannerImageHolder holder, BannerData data, int position, int size) {
+                        Glide.with(getContext())
+                                .load( position %2 == 0 ? R.mipmap.collection : R.mipmap.history )
+                                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                .into(holder.imageView);
+                        holder.imageView.setOnClickListener(view -> {
+                            ShowUtil.showToast(getContext(),"Click Banner");
+                        });
+                    }
+                }).addBannerLifecycleObserver(this)
+                .setIndicator(new CircleIndicator(requireContext()));
 
     }
 
