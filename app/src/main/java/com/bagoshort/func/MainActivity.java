@@ -8,6 +8,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.bagoshort.R;
 import com.bagoshort.core.utils.StatusBarUtil;
@@ -31,12 +32,14 @@ public class MainActivity extends AppCompatActivity {
     private void initPager(){
         MainAdapter adapter = new MainAdapter(this);
         binding.pager.setAdapter(adapter);
+        binding.pager.setOffscreenPageLimit(2);
         binding.pager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
                 binding.navigation.getMenu().getItem(position).setChecked(true);
                 StatusBarUtil.setAndroidNativeLightStatusBar(MainActivity.this,position == 1);
+                binding.navigation.setVisibility( position == 0 ? View.GONE : View.VISIBLE );
             }
         });
         binding.navigation.setItemIconTintList(null);

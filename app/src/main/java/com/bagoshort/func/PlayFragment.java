@@ -9,13 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bagoshort.R;
+import com.bagoshort.databinding.FragmentPlayBinding;
 
 public class PlayFragment extends Fragment {
 
     public PlayFragment() {}
+    private FragmentPlayBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_play, container, false);
+        binding = FragmentPlayBinding.inflate(getLayoutInflater());
+        return binding.getRoot();
     }
+
 }
