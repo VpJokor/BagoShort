@@ -4,6 +4,7 @@
     <color name="black">#FF000000</color>
     <color name="color_black_100">#AA000000</color>
     <color name="color_black_200">#333333</color>
+    <color name="color_black_300">#66333333</color>
 
     <color name="white">#FFFFFFFF</color>
     <color name="color_white_100">#4DFFFFFF</color>

@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import com.bagoshort.R;
 import com.bagoshort.core.utils.ContextUtil;
 import com.bagoshort.core.utils.SizeUtil;
+import com.bagoshort.core.widget.cover.ShowCover;
 import com.bagoshort.databinding.FragmentHomeTagPopBinding;
 import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexboxLayoutManager;
@@ -110,7 +111,7 @@ public class HomeTagPopView extends FrameLayout {
     }
 
     public void show(){
-//        ShowCover cover = new ShowCover();
+        ShowCover cover = new ShowCover();
         popupWindow = new PopupWindow(binding.getRoot(), LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         //点击外部消失，这里因为PopupWindow填充了整个窗口，所以这句代码就没用了
         popupWindow.setOutsideTouchable(true);
@@ -119,8 +120,8 @@ public class HomeTagPopView extends FrameLayout {
         //进入退出的动画
         popupWindow.setAnimationStyle(R.style.MyPopWindowAnim);
         popupWindow.showAtLocation(ContextUtil.getActivityFromContextWrapper(getContext()).getWindow().getDecorView().getRootView(), Gravity.BOTTOM, 0, 0);
-//        cover.showCover(ContextUtil.getActivityFromContextWrapper(getContext()));
-//        popupWindow.setOnDismissListener(() -> cover.hideCover(0));
+        cover.showCover(ContextUtil.getActivityFromContextWrapper(getContext()));
+        popupWindow.setOnDismissListener(() -> cover.hideCover(0));
     }
 
 
