@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bagoshort.R;
+import com.bagoshort.core.utils.ShowUtil;
 import com.bagoshort.core.utils.SizeUtil;
 import com.bagoshort.databinding.FragmentHomeBinding;
 
@@ -33,9 +34,9 @@ public class HomeFragment extends Fragment {
         ((AppCompatActivity) getActivity()).setSupportActionBar(binding.toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(false);
-//        binding.setting.setOnClickListener(v -> {
-//
-//        });
+        binding.search.setOnClickListener(v -> {
+            ShowUtil.showToast(getContext(),"搜索");
+        });
 //        binding.friends.setOnClickListener(view -> {
 //
 //        });

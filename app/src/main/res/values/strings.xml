@@ -2,4 +2,5 @@
     <string name="app_name">BagoShort</string>
     <string name="main_activity_tab_play">播放</string>
     <string name="main_activity_tab_home">主页</string>
+    <string name="recharge">Recharge</string>
 </resources>
