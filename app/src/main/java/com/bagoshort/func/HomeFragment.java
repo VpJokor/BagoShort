@@ -135,12 +135,12 @@ public class HomeFragment extends Fragment {
 
         });
         binding.tabs.setAdapter(homeTagAdapter);
-//        binding.showTabs.setOnClickListener(view -> new SquareTabPopView(requireContext(), homeTagAdapter.index, position -> {
-//            homeTagAdapter.index = position;
-//            homeTagAdapter.notifyDataSetChanged();
-//            binding.tabs.smoothScrollToPosition(position);
-//            // TODO: 2023/12/26 刷新列表数据
-//        }).show());
+        binding.showTabs.setOnClickListener(view -> new HomeTagPopView(requireContext(), homeTagAdapter.index, position -> {
+            homeTagAdapter.index = position;
+            homeTagAdapter.notifyDataSetChanged();
+            binding.tabs.smoothScrollToPosition(position);
+            // TODO: 2023/12/26 刷新列表数据
+        }).show());
     }
 
     private HomeAdapter listAdapter ;

@@ -5,4 +5,7 @@
     <string name="recharge">Recharge</string>
     <string name="history">History</string>
     <string name="collection">Collection</string>
+    <string name="sort">Sort</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
 </resources>
