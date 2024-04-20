@@ -1,15 +1,20 @@
 package com.bagoshort.func;
 
+import android.animation.ValueAnimator;
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.bagoshort.R;
 import com.bagoshort.core.data.BannerData;
@@ -84,8 +89,58 @@ public class HomeFragment extends Fragment {
                         });
                     }
                 }).addBannerLifecycleObserver(this)
-                .setIndicator(new CircleIndicator(requireContext()));
+                .setIndicator(new CircleIndicator(requireContext()))
+                .setLoopTime(3000);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setOrientation(RecyclerView.HORIZONTAL);
+        binding.tabs.setLayoutManager(layoutManager);
+        List<String> datas = new ArrayList<>();
+        datas.add("热门推荐");
+        datas.add("王妃");
+        datas.add("小人物");
+        datas.add("古装");
+        datas.add("时空之旅");
+        datas.add("喜剧");
+        datas.add("都市脑洞");
+        datas.add("先婚后爱");
+        datas.add("现代言情");
 
+        HomeTagAdapter homeTagAdapter = new HomeTagAdapter(datas);
+        homeTagAdapter.setOnItemClickListener((adapter, view, position) -> {
+            //老Item缩小
+            TextView oldlabel = (TextView) homeTagAdapter.getViewByPosition(homeTagAdapter.index,R.id.label);
+            if (oldlabel!=null){
+                ValueAnimator smallAnimator = ValueAnimator.ofFloat(14.5f, 14f);
+                smallAnimator.addUpdateListener(valueAnimator -> {
+                    oldlabel.setTextSize((Float)valueAnimator.getAnimatedValue());
+                });
+                smallAnimator.setDuration(100);
+                smallAnimator.start();
+                oldlabel.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                oldlabel.setTextColor(getContext().getColor(R.color.color_grey_900));
+            }else homeTagAdapter.notifyItemChanged(homeTagAdapter.index);
+            //更新index
+            homeTagAdapter.index = position;
+            //新item放大
+            TextView label = view.findViewById(R.id.label);
+            ValueAnimator bigAnimator = ValueAnimator.ofFloat(14f, 14.5f);
+            bigAnimator.addUpdateListener(valueAnimator -> {
+                label.setTextSize((Float)valueAnimator.getAnimatedValue());
+            });
+            bigAnimator.setDuration(100);
+            bigAnimator.start();
+            label.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+            label.setTextColor(getContext().getColor(R.color.black));
+            // TODO: 2023/12/26 刷新列表数据
+
+        });
+        binding.tabs.setAdapter(homeTagAdapter);
+//        binding.showTabs.setOnClickListener(view -> new SquareTabPopView(requireContext(), homeTagAdapter.index, position -> {
+//            homeTagAdapter.index = position;
+//            homeTagAdapter.notifyDataSetChanged();
+//            binding.tabs.smoothScrollToPosition(position);
+//            // TODO: 2023/12/26 刷新列表数据
+//        }).show());
     }
 
     private HomeAdapter listAdapter ;
