@@ -3,14 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_black_100"
+    android:background="@color/color_black_400"
     tools:context=".func.PlayFragment">
 
-    <TextView
-        android:gravity="center"
-        android:textColor="@color/white"
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshlayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="play" />
+        android:layout_height="match_parent">
+        <com.scwang.smart.refresh.header.FalsifyHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <com.scwang.smart.refresh.header.FalsifyFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+    <CheckBox
+        android:id="@+id/show_manu"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="20dp"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:checked="true"
+        android:background="@drawable/checkbox_bg"
+        android:button="@null" />
 
 </FrameLayout>

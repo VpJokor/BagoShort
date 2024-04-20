@@ -5,6 +5,7 @@
     <color name="color_black_100">#AA000000</color>
     <color name="color_black_200">#333333</color>
     <color name="color_black_300">#66333333</color>
+    <color name="color_black_400">#CC000000</color>
 
     <color name="white">#FFFFFFFF</color>
     <color name="color_white_100">#4DFFFFFF</color>
@@ -26,6 +27,9 @@
     <color name="color_orange">#F59941</color>
 
     <color name="color_yellow">#FFBE0A</color>
+    <color name="color_yellow_100">#FFEB3B</color>
+    <color name="color_yellow_200">#FFEB3B</color>
+    <color name="color_yellow_300">#4DFFEB3B</color>
 
     <color name="color_pink">#FFB6C2</color>
 

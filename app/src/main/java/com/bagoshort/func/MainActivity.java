@@ -17,6 +17,8 @@ import com.bagoshort.databinding.ActivityMainBinding;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.jzvd.Jzvd;
+
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
@@ -40,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
                 binding.navigation.getMenu().getItem(position).setChecked(true);
                 StatusBarUtil.setAndroidNativeLightStatusBar(MainActivity.this,position == 1);
                 binding.navigation.setVisibility( position == 0 ? View.GONE : View.VISIBLE );
+                if ( position != 0 ) Jzvd.goOnPlayOnPause();
+                else Jzvd.goOnPlayOnResume();
             }
         });
         binding.navigation.setItemIconTintList(null);

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/container"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/color_black_400"
+    android:orientation="vertical">
+
+    <com.bagoshort.core.widget.player.JzvdStdTikTok
+        android:id="@+id/videoplayer"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <FrameLayout
+        android:id="@+id/btm_layout"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_marginEnd="120dp"
+            android:layout_marginStart="8dp"
+            android:paddingBottom="16dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/cover"
+                android:src="@mipmap/img"
+                app:shapeAppearance="@style/CircleStyle4DP"
+                android:scaleType="fitXY"
+                android:layout_marginEnd="6dp"
+                android:layout_width="30dp"
+                android:layout_height="50dp"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="短剧名称"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold|italic"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/short_desc"
+                    android:layout_marginTop="6dp"
+                    android:text="总裁 · 100集 · 播放 95.4k 次"
+                    android:textColor="@color/color_grey_300"
+                    android:textSize="11sp"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/item_desc"
+                    android:layout_marginTop="6dp"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="3"
+                    android:textSize="11sp"
+                    android:textColor="@color/color_grey_300"
+                    android:text="第15集 | 穷小子穿越回二十年前的网吧，发现暴富秘诀。他召集人才，利用网吧漏洞大展拳脚。穷小子穿越回二十年前的网吧，发现暴富秘诀。他召集人才，利用网吧漏洞大展拳脚。"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:id="@+id/left_layout"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+<!--        <com.bagoshort.core.widget.like.LikeView-->
+<!--            android:id="@+id/like"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            app:ringColor="@color/red_alpha"-->
+<!--            app:checkedColor="@android:color/holo_red_light"-->
+<!--            app:defaultColor="@android:color/white"-->
+<!--            app:checkedLikeIconRes="@drawable/like_checked"-->
+<!--            app:defaultLikeIconRes="@drawable/like_unchecked"-->
+<!--            app:innerShapeScale="1.5"-->
+<!--            app:dotSizeScale="14"-->
+<!--            app:cirRadius="18dp"-->
+<!--            app:cycleTime="900"-->
+<!--            app:unSelectCycleTime="500" />-->
+<!--        <TextView-->
+<!--            android:id="@+id/like_count"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:drawablePadding="2dp"-->
+<!--            android:layout_marginBottom="16dp"-->
+<!--            android:layout_gravity="center_horizontal|bottom"-->
+<!--            android:text="11.1w"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:textSize="13sp" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/comment"-->
+<!--            android:src="@mipmap/comment_white"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:layout_width="36dp"-->
+<!--            android:layout_height="36dp"/>-->
+<!--        <TextView-->
+<!--            android:id="@+id/commend_count"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="16dp"-->
+<!--            android:layout_gravity="center_horizontal|bottom"-->
+<!--            android:text="11.1w"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:textSize="13sp" />-->
+
+        <com.bagoshort.core.widget.like.LikeView
+            android:id="@+id/collection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:ringColor="@color/color_yellow_300"
+            app:checkedColor="@color/color_yellow_200"
+            app:defaultColor="@android:color/white"
+            app:checkedLikeIconRes="@drawable/collection_1_checked"
+            app:defaultLikeIconRes="@drawable/collection_1_unchecked"
+            app:innerShapeScale="1.5"
+            app:dotSizeScale="14"
+            app:cirRadius="18dp"
+            app:cycleTime="900"
+            app:unSelectCycleTime="500" />
+
+        <TextView
+            android:id="@+id/collection_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="2dp"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:text="@string/collection_label"
+            android:textColor="@android:color/white"
+            android:textSize="13sp" />
+        <ImageView
+            android:id="@+id/share"
+            android:src="@drawable/share_white"
+            android:layout_marginBottom="5dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"/>
+        <TextView
+            android:id="@+id/share_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:text="@string/share"
+            android:textColor="@android:color/white"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

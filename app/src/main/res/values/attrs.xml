@@ -10,4 +10,22 @@
             <enum name="up" value="1"/>
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="LikeView">
+        <attr name="defaultColor" format="color"/>
+        <attr format="color" name="checkedColor"/>
+        <attr format="color" name="ringColor"/>
+        <attr format="dimension" name="cirRadius"/>
+        <attr format="integer" name="cycleTime"/>
+        <attr format="integer" name="unSelectCycleTime"/>
+        <attr format="reference" name="defaultLikeIconRes"/>
+        <attr format="reference" name="checkedLikeIconRes"/>
+        <attr format="float" name="lrGroupCRatio"/>
+        <attr format="float" name="lrGroupBRatio"/>
+        <attr format="float" name="bGroupACRatio"/>
+        <attr format="float" name="tGroupBRatio"/>
+        <attr format="float" name="innerShapeScale"/>
+        <attr format="integer" name="dotSizeScale"/>
+        <attr format="boolean" name="allowRandomDotColor"/>
+    </declare-styleable>
 </resources>

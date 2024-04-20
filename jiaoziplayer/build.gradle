@@ -1,0 +1,27 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 34
+    namespace 'com.jzvd'
+
+    defaultConfig {
+        minSdkVersion 29
+        targetSdkVersion 34
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    lint {
+        abortOnError false
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
+//    implementation "androidx.core:core-ktx:1.8.0"
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.20"
+}

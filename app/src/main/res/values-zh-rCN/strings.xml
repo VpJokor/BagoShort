@@ -5,7 +5,9 @@
     <string name="recharge">充值</string>
     <string name="history">播放记录</string>
     <string name="collection">我的收藏</string>
+    <string name="collection_label">收藏</string>
     <string name="sort">筛选</string>
     <string name="ok">确定</string>
     <string name="cancel">取消</string>
+    <string name="share">分享</string>
 </resources>

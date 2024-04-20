@@ -5,7 +5,9 @@
     <string name="recharge">Recharge</string>
     <string name="history">History</string>
     <string name="collection">Collection</string>
+    <string name="collection_label">Collection</string>
     <string name="sort">Sort</string>
     <string name="ok">Ok</string>
     <string name="cancel">Cancel</string>
+    <string name="share">分享</string>
 </resources>
