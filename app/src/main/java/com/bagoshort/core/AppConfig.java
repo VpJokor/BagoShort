@@ -9,4 +9,18 @@ public class AppConfig {
         return _instance;
     }
 
+    public void init(){
+        initTab();
+        initDatas();
+    }
+
+    //从服务端拉tab数据
+    private void initTab(){
+
+    }
+    //从服务端拉取短剧数据
+    private void initDatas(){
+
+    }
+
 }

@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BagoShort"
+        android:name=".core.MyApp"
         tools:targetApi="31">
         <activity
             android:name=".func.SearchActivity"
