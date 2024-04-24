@@ -29,6 +29,7 @@ import com.bagoshort.core.utils.SizeUtil;
 import com.bagoshort.core.utils.blur.BlurTransformation;
 import com.bagoshort.databinding.FragmentHomeBinding;
 import com.bagoshort.databinding.FragmentHomeHeaderBinding;
+import com.bagoshort.func.manage.PublishActivity;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
@@ -44,7 +45,14 @@ public class HomeFragment extends Fragment {
 
     public HomeFragment() {}
     private FragmentHomeBinding binding;
-    private ActivityResultLauncher<Intent> launcher ;
+    private ActivityResultLauncher<Intent> launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+        Intent data = result.getData();
+        if (data == null) return;
+        int resultCode = result.getResultCode();
+        if ( resultCode == RESULT_OK) {
+
+        }
+    });
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
@@ -60,17 +68,7 @@ public class HomeFragment extends Fragment {
         ((AppCompatActivity) getActivity()).setSupportActionBar(binding.toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(false);
-        binding.search.setOnClickListener(v -> {
-            if (launcher ==null) launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-                Intent data = result.getData();
-                if (data == null) return;
-                int resultCode = result.getResultCode();
-                if ( resultCode == RESULT_OK) {
-
-                }
-            });
-            launcher.launch(new Intent(getContext(), SearchActivity.class));
-        });
+        binding.search.setOnClickListener(v -> launcher.launch(new Intent(getContext(), PublishActivity.class)));
         binding.coin.setOnClickListener(view -> {
             ShowUtil.showToast(getContext(),"充值弹框");
         });

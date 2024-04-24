@@ -2,7 +2,6 @@ package com.bagoshort.core;
 
 import com.bagoshort.core.data.Collection;
 import com.bagoshort.core.data.History;
-import com.bagoshort.core.data.RecommendItem;
 import com.bagoshort.core.data.ShortItem;
 import com.bagoshort.core.data.Tag;
 
@@ -11,14 +10,14 @@ import java.util.List;
 import java.util.Set;
 
 public class Api {
-    private static List<RecommendItem> playRecommends = new ArrayList<>();
-    public static List<Tag> tags = new ArrayList<>();
-    public static List<Short> homeRecommeds = new ArrayList<>();
+    private static List<Long> playRecommends = new ArrayList<>();
+    public static List<Long> tags = new ArrayList<>();
+    public static List<Long> homeRecommeds = new ArrayList<>();
 
     public static List<History> historys = new ArrayList<>();
     public static List<Collection> collections = new ArrayList<>();
 
-    public static List<Tag> getTags(){
+    public static List<Long> getTags(){
         return tags;
     };
 
@@ -46,16 +45,17 @@ public class Api {
         return null;
     }
 
-    public static List<RecommendItem> getPlayRecommends(Set<Long> readIds){
+    public static List<Long> getPlayRecommends(Set<Long> readIds){
         return playRecommends;
     }
 
-    public static List<Short> getHomeRecommends(int index){
+    public static List<Long> getHomeRecommends(int index){
         return homeRecommeds;
     }
 
-    public static List<RecommendItem> searchShort(String key){
+    public static List<Long> searchShort(String key){
         return null;
     }
+
 
 }

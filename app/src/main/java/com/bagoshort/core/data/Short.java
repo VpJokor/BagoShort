@@ -12,12 +12,15 @@ public class Short {
     public String name;
     //简介
     public String desc;
+    //评分 1-5 随机生成
+    public float grad;
     //分类
-    public int tagId;
-    public int tagName;
+    public long tagId;
+    public String tagName;
     //共xx集
     public int itemCount;
-    //阅读次数，提前生成假数据
-    public int readCount;
-    public long createTime;
+    //阅读次数，提前生成假数据(随机生成)
+    public long readCount;
+    public long versionId;
+    public boolean isDelete;
 }

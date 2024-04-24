@@ -17,6 +17,9 @@
         android:theme="@style/Theme.GitChat"
         tools:targetApi="31">
         <activity
+            android:name=".func.manage.PublishActivity"
+            android:exported="false" />
+        <activity
             android:name=".func.SearchActivity"
             android:exported="false" />
         <activity
