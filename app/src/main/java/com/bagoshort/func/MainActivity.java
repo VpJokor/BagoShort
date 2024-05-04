@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             }
             return false;
         });
-        binding.pager.setCurrentItem(1);
+        binding.pager.setCurrentItem(0);
     }
 
     /**
