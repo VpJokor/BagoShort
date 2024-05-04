@@ -30,6 +30,5 @@
         app:itemActiveIndicatorStyle="@null"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/navigation" />
-    <!--    app:itemIconSize="20dp"-->
 
 </LinearLayout>

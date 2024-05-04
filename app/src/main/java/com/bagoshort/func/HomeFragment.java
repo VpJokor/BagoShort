@@ -73,7 +73,6 @@ public class HomeFragment extends Fragment {
             ShowUtil.showToast(getContext(),"充值弹框");
         });
     }
-
     private FragmentHomeHeaderBinding headerBinding;
     private void initHeader(){
         headerBinding = FragmentHomeHeaderBinding.inflate(getLayoutInflater());
