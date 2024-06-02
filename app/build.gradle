@@ -59,4 +59,6 @@ dependencies {
     implementation project(':jiaoziplayer')
     //http
     implementation project(':rxvolley')
+    //添加Gson依赖
+    implementation 'com.google.code.gson:gson:2.10.1'
 }

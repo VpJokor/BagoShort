@@ -14,6 +14,7 @@ import android.view.View;
 import com.bagoshort.R;
 import com.bagoshort.core.utils.StatusBarUtil;
 import com.bagoshort.databinding.ActivityMainBinding;
+import com.google.gson.Gson;
 import com.kymjs.rxvolley.RxVolley;
 import com.kymjs.rxvolley.client.HttpCallback;
 import com.kymjs.rxvolley.client.HttpParams;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         Jzvd.setVideoImageDisplayType(Jzvd.VIDEO_IMAGE_DISPLAY_TYPE_FILL_SCROP);
         initPager();
         sendHttp();
+        optJson();
     }
 
     //发送HTTP请求
@@ -67,6 +69,23 @@ public class MainActivity extends AppCompatActivity {
                 .callback(callback)
                 .encoding("UTF-8") //default
                 .doTask();
+    }
+
+    //json处理
+    private void optJson(){
+        JsonData jsonData = new JsonData("张三");
+        String strData = new Gson().toJson(jsonData);
+        JsonData newData = new Gson().fromJson(strData, JsonData.class);
+        Log.e(TAG, "optJson: strData == " + strData );
+        Log.e(TAG, "optJson: newData.name == " + newData.name );
+    }
+
+    public static class JsonData{
+        public String name;
+
+        public JsonData(String name) {
+            this.name = name;
+        }
     }
 
     public List<Fragment> fragmentList= new ArrayList<>();
