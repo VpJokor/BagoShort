@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "BagoShort"
 include ':app'
 include ':jiaoziplayer'
+include ':rxvolley'

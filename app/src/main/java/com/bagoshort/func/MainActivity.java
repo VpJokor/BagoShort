@@ -8,11 +8,15 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.bagoshort.R;
 import com.bagoshort.core.utils.StatusBarUtil;
 import com.bagoshort.databinding.ActivityMainBinding;
+import com.kymjs.rxvolley.RxVolley;
+import com.kymjs.rxvolley.client.HttpCallback;
+import com.kymjs.rxvolley.client.HttpParams;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +24,7 @@ import java.util.List;
 import cn.jzvd.Jzvd;
 
 public class MainActivity extends AppCompatActivity {
-
+    private static final String TAG = "MainActivity";
     private ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +34,41 @@ public class MainActivity extends AppCompatActivity {
         StatusBarUtil.setAndroidNativeLightStatusBar(this,true);
         Jzvd.setVideoImageDisplayType(Jzvd.VIDEO_IMAGE_DISPLAY_TYPE_FILL_SCROP);
         initPager();
+        sendHttp();
     }
+
+    //发送HTTP请求
+    private void sendHttp(){
+        HttpCallback callback = new HttpCallback() {
+            @Override
+            public void onSuccess(String t) {
+                super.onSuccess(t);
+                Log.e(TAG, "onSuccess: " + t );
+            }
+
+            @Override
+            public void onFailure(int errorNo, String strMsg) {
+                super.onFailure(errorNo, strMsg);
+                Log.e(TAG, "onSuccess: " + errorNo + ',' +strMsg );
+
+            }
+        };
+        HttpParams params = new HttpParams();
+//        params.putHeaders("Authorization", Cache.getInstance().getToken());
+//        params.put("circle_id",circleId + "");
+//        params.put("pasge_index",pasge_index + "");
+//        params.put("pasge_size",10 + "");
+        new RxVolley.Builder()
+                .url("http://www.baidu.com")
+                .httpMethod(RxVolley.Method.GET) //default GET or POST/PUT/DELETE/HEAD/OPTIONS/TRACE/PATCH
+                .contentType(RxVolley.ContentType.FORM)//default FORM or JSON
+                .params(params)
+                .shouldCache(false) //default: get true, post false
+                .callback(callback)
+                .encoding("UTF-8") //default
+                .doTask();
+    }
+
     public List<Fragment> fragmentList= new ArrayList<>();
     private void initPager(){
         fragmentList.add(new PlayFragment());
