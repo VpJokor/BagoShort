@@ -9,7 +9,7 @@
     android:background="@color/color_black_400"
     android:orientation="vertical">
 
-    <com.bagoshort.core.widget.player.JzvdStdTikTok
+    <com.selfagent.core.widget.player.JzvdStdTikTok
         android:id="@+id/videoplayer"
         android:layout_alignParentBottom="true"
         android:background="@color/white"
@@ -91,7 +91,7 @@
         android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-<!--        <com.bagoshort.core.widget.like.LikeView-->
+<!--        <com.like.widget.core.selfagent.LikeView-->
 <!--            android:id="@+id/like"-->
 <!--            android:layout_width="wrap_content"-->
 <!--            android:layout_height="wrap_content"-->
@@ -133,7 +133,7 @@
 <!--            android:textColor="@android:color/white"-->
 <!--            android:textSize="13sp" />-->
 
-        <com.bagoshort.core.widget.like.LikeView
+        <com.selfagent.core.widget.like.LikeView
             android:id="@+id/collection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

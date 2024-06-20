@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.bagoshort.core.widget.SlidingIndicatorBar
+        <com.selfagent.core.widget.SlidingIndicatorBar
             android:id="@+id/indicator"
             android:layout_width="40dp"
             android:layout_height="wrap_content"

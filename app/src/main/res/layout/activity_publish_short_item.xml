@@ -7,7 +7,7 @@
     android:layout_marginHorizontal="4dp"
     android:layout_marginBottom="8dp"
     android:orientation="vertical"
-    tools:context=".func.HomeFragment">
+    tools:context="com.selfagent.func.HomeFragment">
 
     <com.google.android.material.imageview.ShapeableImageView
         app:shapeAppearance="@style/CircleStyle10DP"

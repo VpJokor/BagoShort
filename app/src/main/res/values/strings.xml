@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BagoShort</string>
+    <string name="app_name">SelfAgent</string>
     <string name="main_activity_tab_play">Play</string>
     <string name="main_activity_tab_home">Home</string>
     <string name="recharge">Recharge</string>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_black_400"
-    tools:context=".func.PlayFragment">
+    tools:context="com.selfagent.func.PlayFragment">
 
     <com.scwang.smart.refresh.layout.SmartRefreshLayout
         android:id="@+id/refreshlayout"

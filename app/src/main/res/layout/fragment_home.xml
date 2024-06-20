@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/fragment_home_bg"
-    tools:context=".func.HomeFragment">
+    tools:context="com.selfagent.func.HomeFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -92,7 +92,7 @@
         <com.scwang.smart.refresh.header.ClassicsHeader
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-        <com.bagoshort.core.utils.scrollable.ScrollableLayout
+        <com.selfagent.core.utils.scrollable.ScrollableLayout
             android:id="@+id/scroll_layout"
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -123,7 +123,7 @@
                 android:paddingHorizontal="3dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-        </com.bagoshort.core.utils.scrollable.ScrollableLayout>
+        </com.selfagent.core.utils.scrollable.ScrollableLayout>
 
         <com.scwang.smart.refresh.header.FalsifyFooter
             android:layout_width="match_parent"

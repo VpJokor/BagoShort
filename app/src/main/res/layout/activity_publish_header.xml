@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".func.HomeFragment">
+    tools:context="com.selfagent.func.HomeFragment">
 
     <View
         android:background="@color/color_black_100"
