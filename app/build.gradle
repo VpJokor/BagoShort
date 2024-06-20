@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace 'com.bagoshort'
+    namespace 'com.selfagent'
     compileSdk 34
 
     defaultConfig {
